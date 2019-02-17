@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 
 // Array of data called book list
 let bookList = [
+	{"title": "El otoño del patriarca", "author": "Gabriel García Márquez", "pages": 250},
 	{"title": "Hunger", "author": "Roxane Gay", "pages": 320},
 	{"title": "The Sun Also Rises", "author": "Ernest Hemingway", "pages": 260},
 	{"title": "White Teeth", "author": "Zadie Smith", "pages": 480},
@@ -43,5 +44,3 @@ render(
 	<Library books={bookList}/>, 
 	document.getElementById('root')
 )
-
-

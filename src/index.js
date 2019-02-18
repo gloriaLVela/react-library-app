@@ -42,6 +42,16 @@ class Library extends React.Component {
 		hiring: true
 	}
 
+	// Component lifecycle methods are only available when using class syntax, so you can't use them with function components.
+	// More information http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+	componentDidMount() {
+		console.log("The component is now mounted!")
+	}
+
+	componentDidUpdate() {
+		console.log("The component just updated")
+	}
+
 	toggleOpenClosed = () => {
 		this.setState(prevState => ({
 			open: !prevState.open

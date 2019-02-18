@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import PropTypes from 'prop-types'
 
 // Array of data called book list
 let bookList = [
@@ -10,7 +11,8 @@ let bookList = [
 	{"title": "Cat's Cradle", "author": "Kurt Vonnegut", "pages": 304}
 ]
 
-const Book = ({title, author, pages, freeBookmark}) => {
+// Set the defau;ts
+const Book = ({title="No Title Provided", author= "No Author", pages=0, freeBookmark}) => {
 	return (
 		<section>
 			<h2>{title}</h2>
@@ -36,6 +38,12 @@ const NotHiring = () =>
 
 class Library extends React.Component {
 	
+	static defaultProps = {
+		books: [
+			{"title": "Tahoe Tales", "author": "Chet Whitley", "pages": 1000}
+		]
+	}
+
 	state = { 
 		open: true,
 		freeBookmark: false,
@@ -102,9 +110,22 @@ class Library extends React.Component {
 }
 
 
+//  PropTypes is a form of type checking, so that we do not pass the wrong data type to a component, 
+// which could cause a crash or some unexpected behavior in your application.
+Library.propTypes = {
+	books: PropTypes.array
+}
+
+Book.propTypes = {
+	title: PropTypes.string,
+	author: PropTypes.string,
+	pages: PropTypes.number,
+	freeBookmark: PropTypes.bool
+}
+
 // Library is the main component
 // Pass the booklist to the component using the parameter books
 render(
-	<Library books={bookList}/>, 
+	<Library books={bookList} />, 
 	document.getElementById('root')
 )

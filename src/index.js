@@ -72,13 +72,13 @@ class Library extends React.Component {
 				{this.state.hiring ? <Hiring /> : <NotHiring />}
 				{this.state.loading 
 					? "loading..."
-					: <div>
+					: <div  >
 						{this.state.data.map(product => {
 							return (
-								<div>
+								<div key={product.id}>
 									<h3>Library Product of the Week!</h3>
 									<h4>{product.name}</h4>
-									<img src={product.image} height={100} alt="message" />
+									<img src={product.image} height={100} alt={product.name} />
 								</div>
 							)
 						})}
